@@ -1,0 +1,39 @@
+syntax = "proto3";
+package OvernoiseAuthentication;
+import "Overnoise.proto";
+option java_package = "overnoise";
+option java_outer_classname = "ProtoAuthentication";
+
+message AuthenticationRequest {
+    string username = 1;
+    string password = 2;
+
+    bytes publicKey = 3;
+    bytes token     = 4;
+
+    string contactsListCacheKey = 5;
+    string groupsListCacheKey   = 6;
+    Platform system             = 7;
+
+    enum Platform {
+        macOS     = 0;
+        iOS       = 1;
+        androidOS = 2;
+        linux     = 3;
+        win32     = 4;
+        win64     = 5;
+        freeBSD   = 6;
+        fuchsia   = 7;
+    }
+}
+
+message AuthenticationResponse {
+    Response response = 1;
+    Overnoise.User user         = 2;
+
+    enum Response {
+        unknown = 0;
+        success = 1;
+        incorrectCredentials = 2;
+    }
+}

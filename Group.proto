@@ -1,0 +1,60 @@
+syntax = "proto3";
+package OvernoiseGroup;
+import "Overnoise.proto";
+
+option java_package = "overnoise";
+option java_outer_classname = "ProtoGroup";
+
+message List {
+    repeated Overnoise.Group groups = 1;
+
+    // The cache key is used to improve the login sequence' performance
+    string cacheKey = 2;
+}
+
+message Create {
+    string name    = 1;
+    string iconURL = 2;
+    repeated Member members = 3;
+
+    message Member {
+        int32 userID      = 1;
+        bytes password    = 2;
+    }
+}
+
+message Update {
+    int32 groupID   = 1;
+    string name     = 2;
+    string iconURL  = 3;
+}
+
+message Delete {
+    int32 groupID = 2;
+}
+
+message Invite {
+    int32 groupID  = 1;
+    int32 userID   = 2;
+    bytes password = 3;
+}
+
+message RemoveMember {
+    int32 groupID = 1;
+    int32 userID  = 2;
+}
+
+message Leave {
+    int32 groupID = 1;
+}
+
+message UpdateMemberPassword {
+    int32 groupID  = 1;
+    bytes password = 2;
+    int32 userID   = 3;
+}
+
+message RequestNewPassword {
+    int32 groupID  = 1;
+    int32 senderID = 2;
+}

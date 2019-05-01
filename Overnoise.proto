@@ -1,0 +1,40 @@
+syntax = "proto3";
+package Overnoise;
+import "google/protobuf/timestamp.proto";
+
+option java_package = "overnoise";
+option java_outer_classname = "ProtoUser";
+
+message User {
+    int32 id         = 1;
+    string name      = 2;
+    string avatarURL = 3;
+    bytes publicKey  = 4;
+    int32 status     = 5;
+    string statusMessage = 6;
+    int32 relationStatus = 7;
+}
+
+message Group {
+    int32 id        = 1;
+    int32 ownerID   = 2;
+    bytes password  = 3;
+    string name     = 4;
+    string iconURL  = 5;
+
+    repeated User members = 7;
+}
+
+message Ping {
+    google.protobuf.Timestamp timestamp = 1;
+}
+
+message Pong {
+    google.protobuf.Timestamp timestamp = 1;
+    google.protobuf.Timestamp timestampReceived = 2;
+}
+
+message Error {
+    int32 code = 1;
+    string message = 2;
+}

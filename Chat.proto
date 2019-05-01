@@ -1,0 +1,38 @@
+syntax = "proto3";
+package OvernoiseChat;
+import "google/protobuf/timestamp.proto";
+
+option java_package = "overnoise";
+option java_outer_classname = "ProtoChat";
+
+message Message {
+    // For internal book keeping in the chat app itself
+    bytes id = 1;
+
+    // The encrypted payload
+    bytes payload = 2;
+
+    // This is populated on the server when the message is sent to the client
+    int32 senderID = 3;
+
+    // The id of the recipient (groupID, or userID) to route the message to
+    int32 recipientID = 4;
+    bool isGroupMessage = 5;
+
+    message Payload {
+        string text = 1;
+        repeated File files = 2;
+        google.protobuf.Timestamp timestamp = 3;
+    }
+}
+
+message File {
+    string fileURL = 1;
+    FileType fileType = 2;
+
+    enum FileType {
+        image = 0;
+        video = 1;
+        sticker = 2;
+    }
+}
