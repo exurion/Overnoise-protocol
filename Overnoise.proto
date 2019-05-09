@@ -2,8 +2,11 @@ syntax = "proto3";
 package Overnoise;
 import "google/protobuf/timestamp.proto";
 
-option java_package = "overnoise";
-option java_outer_classname = "ProtoUser";
+option csharp_namespace = "Exurion.Overnoise";
+option go_package = "github.com/exurion/overnoise-protocol/overnoise";
+option java_package = "com.exurion.overnoise";
+option java_outer_classname = "OvernoiseProto";
+option objc_class_prefix = "OVN";
 
 message User {
     uint32 id         = 1;

@@ -1,9 +1,12 @@
 syntax = "proto3";
-package OvernoiseChat;
+package Overnoise;
 import "google/protobuf/timestamp.proto";
 
-option java_package = "overnoise";
-option java_outer_classname = "ProtoChat";
+option csharp_namespace = "Exurion.Overnoise";
+option go_package = "github.com/exurion/overnoise-protocol/chat";
+option java_package = "com.exurion.overnoise";
+option java_outer_classname = "ChatProto";
+option objc_class_prefix = "OVN";
 
 message Message {
     // For internal book keeping in the chat app itself
