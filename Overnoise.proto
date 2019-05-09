@@ -6,18 +6,18 @@ option java_package = "overnoise";
 option java_outer_classname = "ProtoUser";
 
 message User {
-    int32 id         = 1;
+    uint32 id         = 1;
     string name      = 2;
     string avatarURL = 3;
     bytes publicKey  = 4;
-    int32 status     = 5;
+    uint32 status     = 5;
     string statusMessage = 6;
-    int32 relationStatus = 7;
+    uint32 relationStatus = 7;
 }
 
 message Group {
-    int32 id        = 1;
-    int32 ownerID   = 2;
+    uint32 id        = 1;
+    uint32 ownerID   = 2;
     bytes password  = 3;
     string name     = 4;
     string iconURL  = 5;

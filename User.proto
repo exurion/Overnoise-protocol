@@ -6,7 +6,7 @@ option java_package = "overnoise";
 option java_outer_classname = "ProtoUser";
 
 message StatusUpdate {
-    int32 status         = 1;
+    uint32 status         = 1;
     string statusMessage = 2;
 }
 
@@ -16,12 +16,12 @@ message List {
 }
 
 message OnlineStatusRequest {
-    int32 userID = 1;
+    uint32 userID = 1;
 }
 
 message OnlineStatus {
-    int32 userID         = 1;
-    int32 userStatus     = 2;
+    uint32 userID         = 1;
+    uint32 userStatus     = 2;
     string statusMessage = 3;
     double lastOnline    = 4;
 }

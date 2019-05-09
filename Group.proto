@@ -18,43 +18,43 @@ message Create {
     repeated Member members = 3;
 
     message Member {
-        int32 userID      = 1;
+        uint32 userID      = 1;
         bytes password    = 2;
     }
 }
 
 message Update {
-    int32 groupID   = 1;
+    uint32 groupID   = 1;
     string name     = 2;
     string iconURL  = 3;
 }
 
 message Delete {
-    int32 groupID = 2;
+    uint32 groupID = 2;
 }
 
 message Invite {
-    int32 groupID  = 1;
-    int32 userID   = 2;
+    uint32 groupID  = 1;
+    uint32 userID   = 2;
     bytes password = 3;
 }
 
 message RemoveMember {
-    int32 groupID = 1;
-    int32 userID  = 2;
+    uint32 groupID = 1;
+    uint32 userID  = 2;
 }
 
 message Leave {
-    int32 groupID = 1;
+    uint32 groupID = 1;
 }
 
 message UpdateMemberPassword {
-    int32 groupID  = 1;
+    uint32 groupID  = 1;
     bytes password = 2;
-    int32 userID   = 3;
+    uint32 userID   = 3;
 }
 
 message RequestNewPassword {
-    int32 groupID  = 1;
-    int32 senderID = 2;
+    uint32 groupID  = 1;
+    uint32 senderID = 2;
 }

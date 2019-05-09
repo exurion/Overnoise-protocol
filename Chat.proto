@@ -13,10 +13,10 @@ message Message {
     bytes payload = 2;
 
     // This is populated on the server when the message is sent to the client
-    int32 senderID = 3;
+    uint32 senderID = 3;
 
     // The id of the recipient (groupID, or userID) to route the message to
-    int32 recipientID = 4;
+    uint32 recipientID = 4;
     bool isGroupMessage = 5;
 
     message Payload {
@@ -35,4 +35,25 @@ message File {
         video = 1;
         sticker = 2;
     }
+}
+
+message MessageReceipt {
+    bytes messageID   = 1;
+    uint32 recipientID = 2;
+    uint32 receipt    = 3;
+    google.protobuf.Timestamp timestamp  = 4;
+    string error      = 5;
+    uint32 senderID    = 6;
+}
+
+message MessageRequest {
+    bytes id          = 1;
+    uint32 recipientID = 2;
+}
+
+message TypingStatus {
+    uint32 recipientID   = 1;
+    bool status         = 2;
+    bool isGroupMessage = 3;
+    uint32 senderID      = 4;
 }
